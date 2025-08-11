@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAuth } from "./hooks/useAuth";
 import { useWebRTC } from "./hooks/useWebRTC";
 import type { Message, User } from "./types";
@@ -9,7 +9,7 @@ import ChatSidebar from "./components/ChatSidebar";
 import MobileChat from "./components/MobileChat";
 
 export default function App() {
-  const { user } = useAuth();
+  const { user, onLogout } = useAuth();
   const [partner, setPartner] = useState<User | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
@@ -28,6 +28,16 @@ export default function App() {
     handlePiP,
   } = useWebRTC(user, setPartner, setPartnerName, setMessages);
 
+  const handleLogout = async () => {
+    try {
+      await onLogout();
+      // optionally show toast or redirect
+      window.location.reload();
+    } catch (err) {
+      alert("Logout failed");
+    }
+  };
+
   const handleSendMessage = () => {
     sendMessage(text);
     setText("");
@@ -36,7 +46,15 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-6 font-sans">
       <h1 className="text-4xl font-extrabold text-indigo-700 mb-6 drop-shadow-sm">
-        Pingroom
+        Pingroom{" "}
+        {user && (
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
+          >
+            Logout
+          </button>
+        )}
       </h1>
 
       {!partner && (
