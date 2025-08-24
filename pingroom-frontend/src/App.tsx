@@ -5,8 +5,7 @@ import type { Message, User } from "./types";
 import AuthPanel from "./components/AuthPanel";
 import PartnerPanel from "./components/PartnerPanel";
 import VideoCall from "./components/VideoCall";
-import ChatSidebar from "./components/ChatSidebar";
-import MobileChat from "./components/MobileChat";
+import Chat from "./components/Chat";
 
 export default function App() {
   const { user, onLogout } = useAuth();
@@ -44,7 +43,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-6 font-sans">
+    <div className=" min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-6 font-sans">
       <h1 className="text-4xl font-extrabold text-indigo-700 mb-6 drop-shadow-sm">
         Pingroom{" "}
         {user && (
@@ -77,20 +76,13 @@ export default function App() {
               isPiP={isPiP}
             />
 
-            <ChatSidebar
-              messages={messages}
-              text={text}
-              setText={setText}
-              sendMessage={handleSendMessage}
-            />
-
-            <MobileChat
+            <Chat
               chatOpen={chatOpen}
               setChatOpen={setChatOpen}
               messages={messages}
               text={text}
               setText={setText}
-              sendMessage={handleSendMessage}
+              sendMessage={sendMessage}
             />
           </div>
         </>
