@@ -14,6 +14,7 @@ const app = express();
 app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
+import { Request, Response } from "express";
 
 // CORS - allow credentials so cookies/session can be sent from frontend
 app.use(
@@ -47,7 +48,7 @@ app.use('/auth', authRoutes);
 app.use('/reports', reportRoutes);
 
 
-app.get('/health', (req, res) => res.json({ ok: true, env: NODE_ENV }));
+app.get('/health', (req: Request, res: Response) => res.json({ ok: true, env: NODE_ENV }));
 
 const server = http.createServer(app);
 createSignalingServer(server);
