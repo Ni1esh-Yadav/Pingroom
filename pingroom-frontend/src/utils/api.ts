@@ -1,4 +1,3 @@
-// src/utils/api.ts
 export async function logoutUser(): Promise<boolean> {
  
   try {
