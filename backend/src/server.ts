@@ -16,6 +16,10 @@ app.use(express.json());
 app.use(cookieParser());
 import { Request, Response } from "express";
 
+if (NODE_ENV === 'development') {
+  app.set('trust proxy', 1); // important behind proxies (Render)
+}
+
 // CORS - allow credentials so cookies/session can be sent from frontend
 app.use(
   cors({
@@ -32,10 +36,9 @@ app.use(
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: true, // set to true if using HTTPS in production
-      sameSite: 'none',
-      domain: undefined, // set if you need a specific cookie domain
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+      secure: NODE_ENV === 'development',  // true in prod (HTTPS)
+      sameSite: NODE_ENV === 'development' ? 'none' : 'lax',
+      maxAge: 1000 * 60 * 60 * 24 * 7,   // 7 days
     },
   })
 );
