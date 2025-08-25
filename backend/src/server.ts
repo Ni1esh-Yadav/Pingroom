@@ -18,7 +18,7 @@ app.use(cookieParser());
 // CORS - allow credentials so cookies/session can be sent from frontend
 app.use(
   cors({
-    origin: ORIGIN,
+    origin:[ORIGIN,"https://pingroom-sand.vercel.app",],
     credentials: true,
   })
 );
@@ -53,5 +53,5 @@ const server = http.createServer(app);
 createSignalingServer(server);
 
 server.listen(PORT, () => {
-  log(`Server listenin on localhost:${PORT}`);
+  log(`Server listening on localhost:${PORT}`);
 });

@@ -15,7 +15,7 @@ export default function AuthPanel({ user, queued, joinQueue }: Props) {
           — login to meet developers worldwide 🌍
         </p>
         <a
-          href="http://localhost:4000/auth/github"
+          href="https://pingroom.onrender.com/auth/github"
           className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 transition text-white px-5 py-3 rounded-xl shadow font-semibold"
         >
           <svg

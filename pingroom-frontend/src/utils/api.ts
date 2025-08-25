@@ -1,7 +1,7 @@
 export async function logoutUser(): Promise<boolean> {
  
   try {
-    const res = await fetch("http://localhost:4000/auth/logout", {
+    const res = await fetch("https://pingroom.onrender.com/auth/logout", {
       method: "POST",
       credentials: "include", // IMPORTANT: send cookies
       headers: {

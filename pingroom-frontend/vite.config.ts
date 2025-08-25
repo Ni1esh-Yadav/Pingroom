@@ -6,7 +6,7 @@ export default defineConfig({
     plugins: [tailwindcss(),react()],
     server: {
         proxy: {
-            '/auth': 'http://localhost:4000',
+            '/auth': 'https://pingroom.onrender.com',
             '/signaling': {
                 target: 'ws://localhost:4000',
                 ws: true,

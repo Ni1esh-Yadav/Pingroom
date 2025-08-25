@@ -54,10 +54,10 @@ export const useWebRTC = (
 
   const connectWS = () => {
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
-    const wsProtocol = window.location.protocol === "https:" ? "wss" : "ws";
-    const ws = new WebSocket(
-      `${wsProtocol}://${window.location.hostname}:4000/signaling`
-    );
+    const ws =
+  window.location.hostname === "localhost"
+    ? new WebSocket("ws://localhost:4000/signaling")
+    : new WebSocket("wss://pingroom.onrender.com/signaling");
     wsRef.current = ws;
 
     ws.onmessage = async (event) => {
@@ -100,7 +100,7 @@ export const useWebRTC = (
 
   const joinQueue = () => {
     if (!user) {
-      window.location.href = "http://localhost:4000/auth/github";
+      window.location.href = "https://pingroom.onrender.com/auth/github";
       return;
     }
     connectWS();
