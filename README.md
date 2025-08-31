@@ -26,6 +26,21 @@ Pingroom solves this problem by enabling developers to **instantly connect via t
 
 ---
 
+## Contributing
+
+Pingroom is open source and welcomes contributions from developers! 🚀  
+
+If you’d like to contribute:  
+1. Fork the repository.  
+2. Create a new branch (`git checkout -b feature-branch`).  
+3. Make your changes.  
+4. Commit and push (`git commit -m "Added feature"`).  
+5. Open a Pull Request.  
+
+Check the [Issues](../../issues) tab for tasks to work on — a good starting point is **Partner video alignment on mobile devices**.
+
+--- 
+
 ## ⚙️ Backend Setup
 
 1. Navigate to backend folder:
