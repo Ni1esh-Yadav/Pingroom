@@ -37,7 +37,7 @@ If you’d like to contribute:
 4. Commit and push (`git commit -m "Added feature"`).  
 5. Open a Pull Request.  
 
-Check the [Issues](../../issues) tab for tasks to work on — a good starting point is **Partner video alignment on mobile devices**.
+Check the [Issues](../../issues) tab for tasks to work on .
 
 --- 
 
