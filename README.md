@@ -88,7 +88,7 @@ Check the [Issues](../../issues) tab for tasks to work on .
 1. Navigate to frontend folder:
 
    ```bash
-   cd frontend
+   cd pingroom-frontend
    ```
 
 2. Install dependencies:
